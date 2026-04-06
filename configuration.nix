@@ -6,7 +6,7 @@
 
 let
   background-package = pkgs.runCommand "background-image" {} ''
-    cp ${./ba2.jpg} $out
+    cp ${./wallpapers/ba2.jpg} $out
   '';
 in
 {
@@ -111,7 +111,7 @@ in
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    neovim wget tmux vim jq git wl-clipboard xclip
+    neovim wget tmux vim jq git wl-clipboard xclip ripgrep fd
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
       [General]
       background = "${background-package}"
