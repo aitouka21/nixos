@@ -2,10 +2,19 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixpkgs, ... }:
 
+let
+  background-package = pkgs.runCommand "background-image" {} ''
+    cp ${./ba2.jpg} $out
+  '';
+in
 {
+  
+  nixpkgs.config.allowUnfree = true;
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.input-fonts.acceptLicense = true;
 
   imports = [
     ./hardware-configuration.nix
@@ -38,6 +47,14 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Hong_Kong";
+
+  # font
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    input-fonts
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -89,11 +106,16 @@
 
   programs.firefox.enable = true;
   programs.sway.enable = true;
+  programs.niri.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    neovim wget tmux vim jq git
+    neovim wget tmux vim jq git wl-clipboard xclip
+    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+      [General]
+      background = "${background-package}"
+    '')
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
