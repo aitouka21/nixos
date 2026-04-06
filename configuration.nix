@@ -7,6 +7,10 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
   # Use the systemd-boot EFI boot loader.
   boot = {
     plymouth = {
