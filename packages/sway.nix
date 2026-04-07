@@ -20,11 +20,37 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
+
     systemd.enable = true;
+
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
+
+      gaps = {
+        inner = 4;
+	outer = 4;
+	smartGaps = true;
+	smartBorders = "on";
+      };
+
+      colors = {
+        focused = {
+          border = "#cba6f7";
+          background = "#cba6f7";
+          text = "#11111b";
+          indicator = "#f5c2e7";
+          childBorder = "#cba6f7";
+        };
+      };
+
+      window = {
+        titlebar = false;
+	border = 2;
+      };
+
       bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
+
       output = {
         "*" = {
 	  bg = "${background-package} fill";

@@ -13,6 +13,7 @@
     ./packages/nushell.nix
     ./packages/sway.nix
     ./packages/tmux.nix
+    ./packages/waybar.nix
     ./packages/zoxide.nix
     ./packages/zsh.nix
   ];
