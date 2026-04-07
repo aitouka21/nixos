@@ -14,8 +14,10 @@
     ./packages/sway.nix
     ./packages/tmux.nix
     ./packages/waybar.nix
+    ./packages/wofi.nix
     ./packages/zoxide.nix
     ./packages/zsh.nix
+    ./packages/fcitx.nix
   ];
 
 }

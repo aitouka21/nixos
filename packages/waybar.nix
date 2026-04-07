@@ -2,7 +2,6 @@
 {
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
 
     settings = [{
       layer = "top";
@@ -32,7 +31,7 @@
         min-height: 0;
         min-width: 0;
         font-family: Lexend, "Input Mono Compressed";
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 400;
       }
       

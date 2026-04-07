@@ -26,12 +26,11 @@ in
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
+      menu = "${pkgs.wofi}/bin/wofi --show drun";
 
       gaps = {
         inner = 4;
 	outer = 4;
-	smartGaps = true;
-	smartBorders = "on";
       };
 
       colors = {
@@ -51,6 +50,8 @@ in
 
       bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
 
+      startup = [{ command = "fcitx5 -d --replace"; }];
+
       output = {
         "*" = {
 	  bg = "${background-package} fill";
@@ -60,6 +61,7 @@ in
       keybindings = lib.mkOptionDefault {
         "${modifier}+c" = "kill";
 	"${modifier}+p" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
+	"${modifier}+Shift+q" = "exit";
       };
     };
   };

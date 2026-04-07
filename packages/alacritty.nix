@@ -10,7 +10,7 @@
           y = 10;
         };
         dynamic_padding = true;
-        # opacity = 0.9;
+        opacity = 0.95;
       };
       font = {
         size = 11;
