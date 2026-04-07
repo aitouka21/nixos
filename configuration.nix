@@ -12,6 +12,7 @@ in
 {
   
   nixpkgs.config.allowUnfree = true;
+  security.polkit.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.input-fonts.acceptLicense = true;
@@ -54,6 +55,7 @@ in
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     input-fonts
+    font-awesome
   ];
 
   # Configure network proxy if necessary
@@ -76,6 +78,7 @@ in
     wayland.enable = true;
   };
   services.xserver.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -98,20 +101,20 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.malkuth = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      tree
-    ];
   };
 
   programs.firefox.enable = true;
-  programs.sway.enable = true;
   programs.niri.enable = true;
+  programs.sway.enable = true;
+  programs.zsh.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    neovim wget tmux vim jq git wl-clipboard xclip ripgrep fd
+    neovim wget vim jq git ripgrep fd
+    xclip
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
       [General]
       background = "${background-package}"
