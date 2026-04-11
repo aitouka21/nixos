@@ -18,6 +18,7 @@
     ./packages/zoxide.nix
     ./packages/zsh.nix
     ./packages/fcitx.nix
+    ./packages/git.nix
   ];
 
 }

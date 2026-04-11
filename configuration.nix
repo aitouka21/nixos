@@ -17,10 +17,6 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.input-fonts.acceptLicense = true;
 
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
   # Use the systemd-boot EFI boot loader.
   boot = {
     plymouth = {
@@ -135,8 +131,8 @@ in
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 24800 ];
+  networking.firewall.allowedUDPPorts = [ 24800 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
