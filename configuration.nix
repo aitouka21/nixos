@@ -72,9 +72,16 @@ in
   # Enable the X11 windowing system.
 
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = "malkuth";
+    };
+    defaultSession = "sway";
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
   };
   services.xserver.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -135,8 +142,6 @@ in
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 24800 ];
-  networking.firewall.allowedUDPPorts = [ 24800 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
