@@ -39,6 +39,17 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.users.malkuth = import ./homes/malkuth.nix;
+
+	    networking = {
+	      interfaces = {
+	        enp42s0 = {
+		  wakeOnLan.enable = true;
+		};
+	      };
+	      firewall = {
+	        allowedUDPPorts = [ 9 ];
+	      };
+	    };
           }
         ];
       };
