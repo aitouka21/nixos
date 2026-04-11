@@ -105,11 +105,12 @@ in
   programs.niri.enable = true;
   programs.sway.enable = true;
   programs.zsh.enable = true;
+  programs.steam.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    neovim wget vim jq git ripgrep fd
+    neovim wget vim jq git ripgrep fd steamcmd
     xclip
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
       [General]

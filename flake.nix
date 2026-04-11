@@ -23,7 +23,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.malkuth = import ./malkuth.home.nix;
+            home-manager.users.malkuth = import ./homes/malkuth.nix;
           }
         ];
       };
@@ -38,7 +38,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.malkuth = import ./malkuth.home.nix;
+            home-manager.users.malkuth = import ./homes/malkuth.nix;
           }
         ];
       };

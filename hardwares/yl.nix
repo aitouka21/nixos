@@ -18,6 +18,23 @@
       fsType = "xfs";
     };
 
+  fileSystems."/games" =
+    { device = "/dev/disk/by-uuid/eecfba0c-268e-493c-b200-109d2c6a2d9b";
+      fsType = "xfs";
+    };
+
+  fileSystems."/KISS" =
+    { device = "/dev/disk/by-uuid/0b757c39-4352-49b5-a399-9f0fee1c5e0f";
+      fsType = "btrfs";
+      options = [ "subvol=@KISS" "compress=zstd:1" "noatime" "autodefrag" "discard=async" ];
+    };
+
+  fileSystems."/asdfg" =
+    { device = "/dev/disk/by-uuid/0b757c39-4352-49b5-a399-9f0fee1c5e0f";
+      fsType = "btrfs";
+      options = [ "subvol=@asdfg" "compress=zstd:1" "noatime" "autodefrag" "discard=async" ];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/5432-BC14";
       fsType = "vfat";
