@@ -17,6 +17,9 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.input-fonts.acceptLicense = true;
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   # Use the systemd-boot EFI boot loader.
   boot = {
     plymouth = {
@@ -98,7 +101,7 @@ in
   users.users.malkuth = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" ]; # Enable ‘sudo’ for the user.
   };
 
   programs.firefox.enable = true;
@@ -110,7 +113,7 @@ in
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    neovim wget vim jq git ripgrep fd steamcmd
+    neovim wget vim jq git ripgrep fd steamcmd dnsmasq
     xclip
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
       [General]
