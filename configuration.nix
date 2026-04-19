@@ -77,7 +77,6 @@ in
       enable = true;
       user = "malkuth";
     };
-    defaultSession = "sway";
     sddm = {
       enable = true;
       wayland.enable = true;
@@ -121,6 +120,7 @@ in
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     neovim wget vim jq git ripgrep fd steamcmd dnsmasq
+    btrfs-progs pulseaudio util-linux
     xclip
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
       [General]
