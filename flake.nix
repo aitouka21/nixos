@@ -24,8 +24,7 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.users.malkuth = import ./homes/malkuth.nix;
-
-	    services.displayManager.defaultSession = "sway";
+	    # services.displayManager.defaultSession = "sway";
           }
         ];
       };
@@ -76,7 +75,7 @@
 	        capSysAdmin = true;
 	        openFirewall = true;
 	      };
-	    }
+	    };
           }
         ];
       };
