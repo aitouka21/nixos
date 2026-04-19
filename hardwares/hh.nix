@@ -25,7 +25,7 @@
     };
 
   fileSystems."/kiss" =
-    { device = "9bab1e3a-042a-4414-a9ab-48e0675bf783";
+    { device = "/dev/disk/by-uuid/9bab1e3a-042a-4414-a9ab-48e0675bf783";
       fsType = "btrfs";
       options = [ "compress=zstd:1" "noatime" "autodefrag" "discard=async" ];
     };
