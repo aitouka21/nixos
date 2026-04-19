@@ -18,6 +18,7 @@
         modules = [
           ./configuration.nix
           ./hardwares/hh.nix
+	  ./opts/nvidia.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

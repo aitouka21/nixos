@@ -17,7 +17,15 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.input-fonts.acceptLicense = true;
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   programs.virt-manager.enable = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -107,7 +115,7 @@ in
   users.users.malkuth = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "libvirtd" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" "podman" ]; # Enable ‘sudo’ for the user.
   };
 
   programs.firefox.enable = true;
