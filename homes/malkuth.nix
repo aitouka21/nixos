@@ -19,6 +19,7 @@
     ../packages/wofi.nix
     ../packages/zoxide.nix
     ../packages/zsh.nix
+    ../packages/direnv.nix
   ];
 
 }
