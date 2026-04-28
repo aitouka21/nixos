@@ -64,7 +64,8 @@
 		};
 	      };
 	      firewall = {
-	        allowedUDPPorts = [ 9 ];
+	        allowedUDPPorts = [ 9 24800 ];
+		allowedTCPPorts = [ 24800 ];
 	      };
 	    };
 
