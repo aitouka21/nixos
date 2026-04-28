@@ -4,7 +4,7 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    htop tree mpv
+    htop tree mpv deskflow
   ];
 
   imports = [
